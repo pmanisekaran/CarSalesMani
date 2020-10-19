@@ -8,6 +8,6 @@ namespace CarSalesMani.Models.Requests
 	public class SalesPersonRequest
 	{
 		public string CarType { get; set; }
-		public string GroupName { get; set; }
+		public string Language { get; set; }
 	}
 }

@@ -43,7 +43,7 @@ export class HomeComponent {
 
   public getSalesPersonName() {
     const salesPersonRequest = {
-      groupName: this.selectedGroupName,
+      language: this.selectedGroupName,
       carType: this.selectedCarType
     }
     this.httpClient.post<AssignedSalesPerson>(this.baseUrl + 'salespersonassignment', salesPersonRequest)
@@ -59,7 +59,7 @@ export class HomeComponent {
 }
 
 interface SalesPersonRequest {
-  groupName: string;
+  language: string;
   carType: string;
 }
 interface AssignedSalesPerson {

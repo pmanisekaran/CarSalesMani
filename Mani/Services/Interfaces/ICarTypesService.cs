@@ -10,5 +10,6 @@ namespace CarSalesMani.Services.Interfaces
 	{
 
 		List<Group> GetCarTypes();
+		bool IsValidCarType(string groupName);
 	}
 }

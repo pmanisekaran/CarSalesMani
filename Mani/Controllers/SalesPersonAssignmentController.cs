@@ -29,12 +29,10 @@ namespace CarSalesMani.Controllers
 		{
 			try
 			{
-				AssignedSalesPerson result = new AssignedSalesPerson();
-				result.SalesPersonName = "mani";
-				result.SpecialityList.Add("Sport");
-				result.SpecialityList.Add("Footlboal");
+				AssignedSalesPerson assignedSalesPerson = salesPersonAssignmentService
+					.AssignTheMostSuitableSalesPerson(salesPersonRequest);
 
-				return result;
+				return assignedSalesPerson;
 			}
 			catch (Exception ex)
 			{

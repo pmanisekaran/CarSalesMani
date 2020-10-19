@@ -5,6 +5,7 @@ using CarSalesMani.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
 namespace CarSalesMani.Services.Implementations
@@ -19,7 +20,7 @@ namespace CarSalesMani.Services.Implementations
 
 
 			List<Group> list =
-				SalesPeopleGroups.Groups.FindAll(
+				SalesPersonSpeciality.Groups.FindAll(
 					x => x.GroupDescription.StartsWith(Constants.LanguageIdentifier)
 					).ToList();
 
@@ -28,6 +29,11 @@ namespace CarSalesMani.Services.Implementations
 			list.Add(new Group(Constants.RegardlessOfLanguageName, Constants.RegardlessOfLanguage));
 
 			return list;
+		}
+
+		public bool IsValidLanguage(string groupName)
+		{
+			return GetCustomerLanguages().Any(x => x.GroupName == groupName);
 		}
 	}
 }

@@ -10,5 +10,6 @@ namespace CarSalesMani.Services.Interfaces
 	{
 
 		List<Group> GetCustomerLanguages();
+		bool IsValidLanguage(string groupName);
 	}
 }
