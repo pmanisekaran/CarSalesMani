@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -10,43 +10,50 @@ export class HomeComponent {
   public carTypes: Group[];
   public selectedGroupName = "A";
   public selectedCarType = "B";
-  public assignedSalesPerson: AssignedSalesPerson= null;
+  public assignedSalesPerson: AssignedSalesPerson = null;
   private httpClient: HttpClient = null;
-  constructor(http: HttpClient) {
-    http.get<Group[]>('https://localhost:44372/' + 'customerlanguage').subscribe(result => {
+  private baseUrl = "";
+  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    //initialise
+    this.httpClient = http;
+    this.baseUrl = baseUrl;
+    this.assignedSalesPerson = { salesPersonName: "Not Assigned Yet!!", specialityList: [] }
+
+    this.getAndSetLanguages();
+    this.getAndSetCarTypes();
+
+  }
+
+  private getAndSetLanguages() {
+    //get languages
+    this.httpClient.get<Group[]>(this.baseUrl + 'customerlanguage').subscribe(result => {
       this.languages = result;
       this.selectedGroupName = this.languages[0].groupName;
 
 
     }, error => console.error(error));
-    http.get<Group[]>('https://localhost:44372/' + 'cartypes').subscribe(result => {
+  }
+  private getAndSetCarTypes() {
+
+    this.httpClient.get<Group[]>(this.baseUrl + 'cartypes').subscribe(result => {
       this.carTypes = result;
       this.selectedCarType = this.carTypes[0].groupName;
     }, error => console.error(error));
-    this.httpClient = http;
-    this.assignedSalesPerson = { salesPersonName: "Not Assigned Yet!!", specialityList:[]}
   }
 
   public getSalesPersonName() {
-    if (this.selectedGroupName === null)
-      alert('object is null');
-    else {
-      alert(this.selectedGroupName);
-      alert(this.selectedCarType);
-    }
     const salesPersonRequest = {
       groupName: this.selectedGroupName,
       carType: this.selectedCarType
     }
-    this.httpClient.post<AssignedSalesPerson>('https://localhost:44372/' + 'salespersonassignment', salesPersonRequest )
+    this.httpClient.post<AssignedSalesPerson>(this.baseUrl + 'salespersonassignment', salesPersonRequest)
       .subscribe(result => {
-       this.assignedSalesPerson = result;
-        console.log(this.assignedSalesPerson.specialityList);
+        this.assignedSalesPerson = result;
+
       }, error => {
-          console.log('bbbbbbbbbbbbbbbbbbbbbbbb');
         console.error(error);
       });
-    
+
 
   }
 }
