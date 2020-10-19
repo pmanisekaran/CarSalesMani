@@ -14,9 +14,12 @@ namespace Mani.Services.Implementations
 		public List<Group> GetCarTypes()
 		{
 			List<Group> list =
-							SalesPeopleGroups.Groups.FindAll(
-								x => !x.GroupDescription.StartsWith(Constants.LanguageIdentifier)
-								).ToList();
+			SalesPeopleGroups.Groups.FindAll(
+			x => !x.GroupDescription.StartsWith(Constants.LanguageIdentifier)
+			).ToList();
+			list.Add(new Group(Constants.NotSpecifyCarTypeGroupDescName,
+				Constants.NotSpecifyCarTypeGroupDesc));
+
 			return list;
 		}
 	}

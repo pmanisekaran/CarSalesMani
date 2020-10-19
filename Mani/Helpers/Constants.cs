@@ -13,5 +13,7 @@ namespace CarSalesMani.Helpers
 		public const string RegardlessOfLanguage = "Regardless of language";
 		public const string DoNotSpeakGreakGroupName = "Z0";
 		public const string RegardlessOfLanguageName = "Z1";
+		public const string NotSpecifyCarTypeGroupDesc = "Not looking for anything specific";
+		public const string NotSpecifyCarTypeGroupDescName = "Y0";
 	}
 }
