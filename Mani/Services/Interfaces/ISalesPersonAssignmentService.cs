@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Mani.Services.Interfaces
 {
-	public interface ISalesPersonAssignment
+	public interface ISalesPersonAssignmentService
 	{
 	}
 }

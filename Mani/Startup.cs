@@ -1,3 +1,7 @@
+using CarSalesMani.Services.Implementations;
+using CarSalesMani.Services.Interfaces;
+using Mani.Services.Implementations;
+using Mani.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -20,7 +24,15 @@ namespace Mani
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
+			
+		
 			services.AddControllersWithViews();
+			services.AddTransient<ISalesPersonAssignmentService, SalesPersonAssignmentService>();
+			services.AddTransient<ICustomerLanguageService, CustomerLanguageService>();
+
+			services.AddTransient<ICarTypesService, CarTypesService>();
+
+
 			// In production, the Angular files will be served from this directory
 			services.AddSpaStaticFiles(configuration =>
 			{

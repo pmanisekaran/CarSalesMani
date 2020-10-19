@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mani.Services.Implementations
 {
-	public class SalesPersonAssignment : ISalesPersonAssignment
+	public class SalesPersonAssignmentService : ISalesPersonAssignmentService
 	{
 	}
 }
