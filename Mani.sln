@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mani", "Mani\Mani.csproj", "{EE2AFFAE-D298-411D-9294-AB2BBF6D8AD9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE2AFFAE-D298-411D-9294-AB2BBF6D8AD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE2AFFAE-D298-411D-9294-AB2BBF6D8AD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE2AFFAE-D298-411D-9294-AB2BBF6D8AD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE2AFFAE-D298-411D-9294-AB2BBF6D8AD9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F875F664-CB9F-404B-8442-0C744BF90AC3}
+	EndGlobalSection
+EndGlobal
