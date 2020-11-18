@@ -25,26 +25,30 @@
     <button class="btn btn-primary" (click)="getSalesPersonName()">Assign Sales Person</button>
   </div>
   <p></p>
-  
+
+  <div>
+    <span></span>
+    <label>
+      Assigned Sales Person Name:
+      <b>{{assignedSalesPerson.salesPersonName}} </b>
+    </label>
     <div>
-      <span></span>
-     <label>
-          Assigned Sales Person Name:
-          <b>{{assignedSalesPerson.salesPersonName}} </b>
-        </label>
-      <div>
-        <label>
-          Assigned Sales Person Specialities are:
-        </label>
-      </div>
-      <div>
-        <ul >
-          <li *ngFor=" let speciality of assignedSalesPerson.specialityList">
-            {{speciality}}
-          </li>
-        </ul>
-      </div>
+      <label>
+        Assigned Sales Person Specialities are:
+      </label>
     </div>
-  
+    <div>
+      <ul>
+        <li *ngFor=" let speciality of assignedSalesPerson.specialityList">
+          {{speciality}}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <label>
+      Web server ip:{{serverIp}}
+    </label>
+  </div>
 </div>
 

@@ -13,6 +13,7 @@ export class HomeComponent {
   public assignedSalesPerson: AssignedSalesPerson = null;
   private httpClient: HttpClient = null;
   private baseUrl = "";
+  public serverIp: string;
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     //initialise
     this.httpClient = http;
@@ -21,7 +22,16 @@ export class HomeComponent {
 
     this.getAndSetLanguages();
     this.getAndSetCarTypes();
+    this.getServerIp();
 
+  }
+
+  private getServerIp() {
+    //get languages
+    this.httpClient.get<WebServerDetails>(this.baseUrl + 'serverIp').subscribe(result => {
+      this.serverIp = result.serverIp;
+      console.log(result);
+    }, error => console.error(error));
   }
 
   private getAndSetLanguages() {
@@ -70,4 +80,8 @@ interface AssignedSalesPerson {
 interface Group {
   groupName: string;
   groupDescription: string;
+}
+interface WebServerDetails {
+  hostName: string;
+  serverIp: string;
 }
